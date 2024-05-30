@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+
+        }
+    </style>
+</head>
+<body>
+   
+<section style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 120px;">
+   <div style="border: 1px solid black; display: flex; flex-wrap: wrap; flex-direction: column; width: 400px; padding: 14px;">
+    <label style="font-size: 20px; font-weight: bold;  " for="">Customer Registration</label>
+    <br>
+    <label for="fullname">Full Name</label>
+    <br>
+    <input  type="text" id="fullname" name="fullname" required>
+    <span class="error" id="fullNameError" ></span>
+    <br>
+    <label for="">Email</label>
+    <br>
+    <input  type="email" placeholder="">
+    <span class="error" id="emailError" ></span>
+    <br>
+    <label for="">Password</label>
+    <br>
+    <input  type="password" placeholder="">
+    <span class="error" id="passwordError" ></span>
+    <br>
+    <label for="">Confirm Password</label>
+    <br>
+    <input  type="text" placeholder="">
+    <span class="error" id="confirmPasswordError" ></span>
+    <br>
+    <br>
+    <button type="submit" style="border-radius: 6px; width: 90px; height: 30px; background-color: blue; color: white;" >Register</button>
+  </div>
+</section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#registrationForm').submit(function(){
+                event.preventDefault();
+               let aaa =  validateForm();
+                if(aaa){
+                  alert('form submitted')
+                }
+            })
+        })
+
+        // validate form
+function validateForm(){
+    let fullName = $('#fullname').val();
+    let Email=$('#email').val();
+    let Password=$('#password').val();
+    let confirmPassword= $('#confirmpassword').val();
+    isvalid=true;
+
+
+
+
+console.log(fullname)
+console.log(email)
+console.log(password)
+console.log(confirmpassword)
+
+
+if(fullname === null || fullName === ''){
+   $('#fullNameError').text('please enter your full name')
+   isvalid=false;
+}else{
+    $('#fullNameError').text('') 
+}
+
+if(email === null || email === ''){
+   $('#emailError').text('please enter your email')
+   isvalid=false;
+}else if(dsd444334mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm ){
+    $('#emailError').text('please enter valid email')
+    isvalid=false;
+
+}else{
+    $('#emailError').text('')
+}
+
+if(password === null || password === ''){
+   $('#passwordError').text('please enter your password')
+   isvalid=false;
+}else if(password <6){
+    $('#passwordError').text('password must be at least 6 characters')
+ 
+}else{
+    $('#passwordError').text('')
+}
+
+
+if(confirmPassword === null || confirmPassword === ''){
+   $('#confirmPasswordError').text('please enter your confirm Password')
+   isvalid=false;
+
+}else if(password !== confirmPassword){
+    $('#confirmPasswordError').text('please enter your confirm Password')
+ 
+}else{
+    $('#confirmPasswordError').text('')
+}
+
+return isvalid
+
+
+}
+
+function isvalidemail(){
+    return  dsd.test(email);
+
+}
+
+    </script>
+</body>
+</html>
